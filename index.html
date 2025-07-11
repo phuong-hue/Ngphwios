@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menu Aimlock VIP - NguyenphuongiosVip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Poppins, sans-serif; }
+    body { background: #121212; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+    #splash {
+      position: absolute;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      z-index: 10;
+    }
+    #splash img { max-width: 200px; border-radius: 20px; }
+    #splash .text { margin-top: 20px; color: #00ffd5; font-size: 18px; text-align: center; }
+    #app { display: none; width: 100%; max-width: 400px; padding: 20px; background: #1f1f1f; border-radius: 20px; box-shadow: 0 0 10px #000; position: relative; }
+    h2 { text-align: center; color: #00ffd5; font-size: 20px; }
+    .subtitle { text-align: center; color: #ccc; margin-bottom: 15px; }
+    .toggle-group { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; padding: 12px 15px; background: #292929; border-radius: 12px; border: 2px solid transparent; animation: glow 3s infinite alternate; transition: .3s;}
+    .toggle-group:hover { background: #333; }
+    .toggle-group span { font-size: 15px; font-weight: 500; }
+    .desc { font-size: 12px; color: #aaa; }
+    .switch { position: relative; width: 50px; height: 25px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top:0; left:0; right:0; bottom:0; background:#ccc; transition:.4s; border-radius: 25px; }
+    .slider:before { content:""; position:absolute; height:18px; width:18px; left:4px; bottom:3.5px; background:#fff; transition:.4s; border-radius:50%; }
+    input:checked + .slider { background: #00ffd5; }
+    input:checked + .slider:before { transform: translateX(24px); }
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #00ffd5, 0 0 20px #68c234, 0 0 30px #9ec92a; border-color: #d18241;}
+      50% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #6c3194, 0 0 30px #8b1818; border-color: #64113b;}
+      100% { box-shadow: 0 0 10px #9c9b5a, 0 0 20px #00ff55, 0 0 30px #bb4747; border-color: #703272;}
+    }
+    .dpi-container { text-align: center; margin-top:20px; }
+    .dpi-value { color:#00ffd5; margin-top:5px; font-size:16px; display:inline-block; width: 100%; text-align: center;}
+    .info-box { margin-top:20px; padding:15px; background:#292929; border-left:4px solid #00ffd5; border-radius:10px; display:none; }
+    .info-box.active { display:block; }
+    #welcome { text-align: center; color:#ff00ff; font-size:18px; margin-bottom:10px; min-height:24px; }
+  </style>
+  <style>    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body, html { height: 100%; background: #111; color: white; }
+
+    #splash {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #111;
+      display: flex; justify-content: center; align-items: center;
+      z-index: 999;
+    }
+
+    .splash-container {
+      background: transparent;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(239, 255, 255, 0.4);
+      width: 90%; max-width: 350px;
+      color: white;
+      position: relative;
+    }
+    
+
+    .splash-container h1 {
+      font-size: 22px;
+      color: #00ffd5;
+      margin-bottom: 15px;
+    }
+
+    .splash-container p {
+      color: #ccc;
+      font-size: 14px;
+    }
+    .typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ffd5;
+      width: 0;
+      animation: typing 5s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    #app { display: none; padding: 20px; }
+    h1, h2 { text-align: center; margin-bottom: 10px; }
+    .toggle-group { margin: 10px 0; padding: 10px; background: #222; border-radius: 10px; }
+    label { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
+    input[type="range"] { width: 100%; }
+    input[type="checkbox"] { transform: scale(1.3); }
+    </style>
+</head>
+<body>
+  <div id="splash">
+    <div class="text">MENU AIMLOCK CONFIG</div>
+    <div class="text">By NguyenphuongiosVip</div>
+    <div class="text">MENU Chỉ Dùng Cho 1 Thiết Bị</div>
+    <div class="text"> </div>
+    <div class="splash-container">
+      <h1 class="typewriter">🔒 HỆ THỐNG AIMLOCK</h1>
+      <p>Đang khởi động hệ thống...</p>
+    </div>
+  </div>
+
+
+<div id="app">
+    <h2>MENU AIMLOCK CONFIG</h2>
+    <div class="subtitle">NguyenphuongiosVip</div>
+    <div id="welcome"></div>
+    <div class="toggle-group"><div><span>AIMLOCK VIP</span><br><small class="desc">Bám đầu</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('aimlock',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>AIMHEAD</span><br><small class="desc">Bám chặt vùng đầu</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('aimhead',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>AIMBOT</span><br><small class="desc">Bám tâm cao</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('aimbot',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>SENSITIVITY</span><br><small class="desc">Mượt máy, nhẹ máy</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('sensitivity',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>FIX LAG</span><br><small class="desc">Giảm mạng kém, tối ưu chơi game</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('fixlag',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>FIX RUNG</span><br><small class="desc">Ổn định hình ảnh, giảm giật rung</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('fixrung',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>HEADLOCK VIP</span><br><small class="desc">Tăng nhạy bám đầu VIP</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('headlock',this.checked)"><span class="slider"></span></label></div>
+    <div class="toggle-group"><div><span>TỐI ƯU MÁY</span><br><small class="desc">Giảm tất cả để máy mượt</small></div><label class="switch"><input type="checkbox" onchange="toggleInfo('toiuu',this.checked)"><span class="slider"></span></label></div>
+    <div class="dpi-container"><label for="dpi">🎯 DPI: <span id="dpi-value">275</span></label><input type="range" id="dpi" min="0" max="550" value="275" oninput="onDpi(this.value)"></div>
+    <div id="infoBox" class="info-box"></div>
+  </div>
+
+  <audio id="bgMusic" src="banquyenvip.mp3" preload="auto"></audio>
+  <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+  <audio id="dpiSound" src="dpithaydoi.mp3" preload="auto"></audio>
+  <input type="checkbox" onclick="new Audio('click.mp3').play()">
+
+  <script>
+    function playClickSound() {
+      const sound = new Audio("click.mp3");
+      sound.play().catch(e => console.warn("Không thể phát:", e));
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('input[type="checkbox"]').forEach(c => {
+        c.onclick = () => playClickSound();
+      });
+    });
+    document.body.addEventListener('click', () => {
+      const bgMusic = document.getElementById('bgMusic');
+      if (bgMusic) bgMusic.play();
+    }, { once: true }); // chỉ phát đúng 1 lần, không lặp lại
+    const splash = document.getElementById('splash');
+    const app = document.getElementById('app');
+    const welcomeTxt = document.getElementById('welcome');
+    const bgMusic = document.getElementById('bgMusic');
+    const clickSound = document.getElementById('clickSound');
+    const dpiSound = document.getElementById('dpiSound');
+    const infoMap = {
+      aimlock: "💡 AIMLOCK VIP: Bám đầu",
+      aimhead: "💡 AIMHEAD: Bám chặt vùng đầu",
+      aimbot: "💡 AIMBOT: Bám tâm cao",
+      sensitivity: "💡 SENSITIVITY: Mượt máy, nhẹ máy",
+      fixlag: "💡 FIX LAG: Giảm mạng kém, tối ưu chơi game",
+      fixrung: "💡 FIX RUNG: Ổn định hình ảnh, giảm giật rung",
+      headlock: "💡 HEADLOCK VIP: Tăng nhạy bám đầu VIP",
+      toiuu: "💡 TỐI ƯU MÁY: Giảm tất cả để máy mượt"
+    };
+
+    // Splash -> App
+          setTimeout(() => {
+        const banQuyenAudio = document.getElementById('banQuyen');
+        banQuyenAudio.play();
+      }, 3000);
+setTimeout(() => {
+      splash.style.display = 'none';
+      app.style.display = 'block';
+      typeWelcome("Welcome, NguyenphuongiosVip!");
+      setTimeout(() => bgMusic.play(), 500);
+    }, 5000);
+
+    function typeWelcome(text) {
+      welcomeTxt.innerText = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        welcomeTxt.innerText += text[i++];
+        if(i >= text.length) {
+          clearInterval(interval);
+          setTimeout(() => { welcomeTxt.innerText += "\nAIMLOCK SYSTEM READY..."; }, 300);
+        }
+      }, 100);
+    }
+
+    function toggleInfo(key, checked) {
+      clickSound.play();
+      const box = document.getElementById('infoBox');
+      if (checked) {
+        box.classList.add('active');
+        box.innerHTML += `<div>${infoMap[key]}</div>`;
+      } else {
+        box.innerHTML = Array.from(box.children)
+          .filter(c => !c.innerText.includes(infoMap[key].slice(4)))
+          .map(c => c.outerHTML)
+          .join('');
+        if (!box.innerHTML) box.classList.remove('active');
+      }
+    }
+
+    function onDpi(val) {
+      document.getElementById('dpi-value').innerText = val;
+      dpiSound.play();
+    }
+
+    // enable audio on first tap (due browser autoplay)
+    document.body.addEventListener('click', () => {
+      bgMusic.play();
+      document.body.removeEventListener('click', this);
+    }, { once: true });
+  </script>
+</body>
+</html>
